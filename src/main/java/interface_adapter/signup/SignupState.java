@@ -10,6 +10,8 @@ public class SignupState {
     private String passwordError;
     private String repeatPassword = "";
     private String repeatPasswordError;
+    private String preference = "";
+    private String allergies = "";
 
     public String getUsername() {
         return username;
@@ -59,12 +61,33 @@ public class SignupState {
         this.repeatPasswordError = repeatPasswordError;
     }
 
+    public String getPreference() {
+        return preference;
+    }
+
+    public void setPreference(String preference) {
+        this.preference = preference;
+    }
+
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
     @Override
     public String toString() {
-        return "SignupState{"
-                + "username='" + username + '\''
-                + ", password='" + password + '\''
-                + ", repeatPassword='" + repeatPassword + '\''
-                + '}';
+        return "SignupState{" +
+                "username='" + username + '\'' +
+                ", usernameError='" + usernameError + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordError='" + passwordError + '\'' +
+                ", repeatPassword='" + repeatPassword + '\'' +
+                ", repeatPasswordError='" + repeatPasswordError + '\'' +
+                ", preference='" + preference + '\'' +
+                ", allergies='" + allergies + '\'' +
+                '}';
     }
 }

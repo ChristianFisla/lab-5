@@ -8,11 +8,16 @@ public class SignupInputData {
     private final String username;
     private final String password;
     private final String repeatPassword;
+    private final String preference;
+    private final String allergies;
 
-    public SignupInputData(String username, String password, String repeatPassword) {
+    public SignupInputData(String username, String password, String repeatPassword, String preference,
+            String allergies) {
         this.username = username;
         this.password = password;
         this.repeatPassword = repeatPassword;
+        this.preference = preference;
+        this.allergies = allergies;
     }
 
     String getUsername() {
@@ -25,5 +30,13 @@ public class SignupInputData {
 
     public String getRepeatPassword() {
         return repeatPassword;
+    }
+
+    String getPreference() {
+        return preference;
+    }
+
+    String getAllergies() {
+        return allergies;
     }
 }

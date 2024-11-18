@@ -24,7 +24,7 @@ import interface_adapter.login.LoginViewModel;
  */
 public class LoginView extends JPanel implements ActionListener, PropertyChangeListener {
 
-    private final String viewName = "log in";
+    private final String viewName = "Log in";
     private final LoginViewModel loginViewModel;
 
     private final JTextField usernameInputField = new JTextField(15);
@@ -34,7 +34,7 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
     private final JLabel passwordErrorField = new JLabel();
 
     private final JButton logIn;
-    private final JButton cancel;
+    private final JButton signUp;
     private LoginController loginController;
 
     public LoginView(LoginViewModel loginViewModel) {
@@ -42,7 +42,7 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         this.loginViewModel = loginViewModel;
         this.loginViewModel.addPropertyChangeListener(this);
 
-        final JLabel title = new JLabel("Login Screen");
+        final JLabel title = new JLabel("Login");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         final LabelTextPanel usernameInfo = new LabelTextPanel(
@@ -51,10 +51,10 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                 new JLabel("Password"), passwordInputField);
 
         final JPanel buttons = new JPanel();
+        signUp = new JButton("sign up");
+        buttons.add(signUp);
         logIn = new JButton("log in");
         buttons.add(logIn);
-        cancel = new JButton("cancel");
-        buttons.add(cancel);
 
         logIn.addActionListener(
                 new ActionListener() {
@@ -71,7 +71,12 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                 }
         );
 
-        cancel.addActionListener(this);
+        signUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginController.switchToSignupView();
+            }
+        });
 
         usernameInputField.getDocument().addDocumentListener(new DocumentListener() {
 

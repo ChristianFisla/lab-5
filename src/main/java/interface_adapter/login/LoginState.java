@@ -7,6 +7,8 @@ public class LoginState {
     private String username = "";
     private String loginError;
     private String password = "";
+    private String preference = "";
+    private String allergies = "";
 
     public String getUsername() {
         return username;
@@ -32,4 +34,19 @@ public class LoginState {
         this.password = password;
     }
 
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
+    public String getPreference() {
+        return preference;
+    }
+
+    public void setPreference(String preference) {
+        this.preference = preference;
+    }
 }

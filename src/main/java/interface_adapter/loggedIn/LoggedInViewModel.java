@@ -1,4 +1,4 @@
-package interface_adapter.change_password;
+package interface_adapter.loggedIn;
 
 import interface_adapter.ViewModel;
 
@@ -8,7 +8,7 @@ import interface_adapter.ViewModel;
 public class LoggedInViewModel extends ViewModel<LoggedInState> {
 
     public LoggedInViewModel() {
-        super("logged in");
+        super("Logged in");
         setState(new LoggedInState());
     }
 

@@ -19,7 +19,7 @@ class LoginInteractorTest {
 
         // For the success test, we need to add Paul to the data access repository before we log in.
         UserFactory factory = new CommonUserFactory();
-        User user = factory.create("Paul", "password");
+        User user = factory.create("Paul", "password", "preference", "allergies");
         userRepository.save(user);
 
         // This creates a successPresenter that tests whether the test case is as we expect.
@@ -32,6 +32,10 @@ class LoginInteractorTest {
             @Override
             public void prepareFailView(String error) {
                 fail("Use case failure is unexpected.");
+            }
+
+            @Override
+            public void switchToSignupView() {
             }
         };
 
@@ -46,7 +50,7 @@ class LoginInteractorTest {
 
         // For the success test, we need to add Paul to the data access repository before we log in.
         UserFactory factory = new CommonUserFactory();
-        User user = factory.create("Paul", "password");
+        User user = factory.create("Paul", "password", "preference", "allergies");
         userRepository.save(user);
 
         // This creates a successPresenter that tests whether the test case is as we expect.
@@ -54,6 +58,11 @@ class LoginInteractorTest {
             @Override
             public void prepareSuccessView(LoginOutputData user) {
                 assertEquals("Paul", userRepository.getCurrentUsername());
+            }
+
+            @Override
+            public void switchToSignupView() {
+
             }
 
             @Override
@@ -76,7 +85,7 @@ class LoginInteractorTest {
         // For this failure test, we need to add Paul to the data access repository before we log in, and
         // the passwords should not match.
         UserFactory factory = new CommonUserFactory();
-        User user = factory.create("Paul", "password");
+        User user = factory.create("Paul", "password", "preference", "allergies");
         userRepository.save(user);
 
         // This creates a presenter that tests whether the test case is as we expect.
@@ -85,6 +94,11 @@ class LoginInteractorTest {
             public void prepareSuccessView(LoginOutputData user) {
                 // this should never be reached since the test case should fail
                 fail("Use case success is unexpected.");
+            }
+
+            @Override
+            public void switchToSignupView() {
+
             }
 
             @Override
@@ -110,6 +124,11 @@ class LoginInteractorTest {
             public void prepareSuccessView(LoginOutputData user) {
                 // this should never be reached since the test case should fail
                 fail("Use case success is unexpected.");
+            }
+
+            @Override
+            public void switchToSignupView() {
+
             }
 
             @Override
